@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %} Страница регистрации {% endblock %}
+{% block content %}
+	<div class="conteiner">
+		<div class="row">
+        	<div class="col-md-4 col-md-offset-3">
+
+        		<h3>Регистрация нового пользователя.</h3>
+        		{{ form.errors }}
+				<form method="post" id="login-form">
+					{% csrf_token %}
+					<div class="form-group">
+						<div>
+					        <label class="required" for="id_username">Имя пользователя:</label>
+					        <input type="text" name="username" class="form-control" maxlength="150" autofocus="" required="" id="id_username">
+					        <div class="help">Должно состоять мене чем 150 символов. Буквы, цифры и только @ /. / + / - / _.</div>
+					    </div>
+					</div>
+		    
+			        <div class="form-group">
+			            <div>
+			                <label class="required" for="id_password1">Пароль:</label>
+			                <input type="password" class="form-control" name="password1" required="" id="id_password1">
+			            </div>
+			        </div>
+			    
+			        <div class="form-group">
+			            <div>
+			                <label class="required" for="id_password2">Подверждение пароля:</label>
+			                <input type="password" class="form-control" name="password2" required="" id="id_password2">
+			                <div class="help">Ведите пароль еще раз для подверждение.</div>
+			                    
+			            </div>
+			        </div>
+			    
+					<div class="submit-row">
+						<input type="submit" value="Регистрировать" class="btn btn-primary" name="_save">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
